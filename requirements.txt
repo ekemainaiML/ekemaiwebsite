@@ -1,6 +1,5 @@
 Flask
 gunicorn
-gunicornblinker
 click
 itsdangerous
 Jinja2
