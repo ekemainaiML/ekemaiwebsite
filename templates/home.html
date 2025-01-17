@@ -15,11 +15,18 @@
         }
 
         header {
-            background-color: #333;
-            color: #fff;
+            background-color: #FFFFFF;
+            color: #16384b;
             padding: 0rem 0;
             text-align: center;
         }
+
+        footer {
+            background-color: #FFFFFF;
+            color: #16384b;
+            padding: 0rem 0;
+            text-align: justify;
+       }
 
         header h1 {
             margin: 0;
@@ -84,10 +91,11 @@
     </style>
 </head>
 <body>
+    {% include 'navbar.html' %}
     <header>
         <h2>Ekemai Digital Hub</h2>
     </header>
-    {% include 'navbar.html' %}
+    
     <div class="container">
         <section class="section">
             <h2 >Digital Products</h2>
@@ -186,5 +194,9 @@
             </div>
         </section>
     </div>
+    <footer>
+         {% include 'footer.html' %}
+    </footer> 
 </body>
+   
 </html>
