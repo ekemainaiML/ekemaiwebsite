@@ -169,4 +169,4 @@ def does_not_contain_at(sx):
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(get_all_aiagents())
+    loop.run_until_complete(login_user("angelmax@hotmail.com", "Patrick"))
