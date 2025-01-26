@@ -12,3 +12,12 @@ itsdangerous
 Jinja2
 MarkupSafe
 Werkzeug
+asgiref
+flask-cors
+flask-session
+gevent
+gunicorn
+pip-chill
+pymongo
+python-dotenv
+requests
