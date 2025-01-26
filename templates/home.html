@@ -90,8 +90,25 @@
         }
     </style>
 </head>
+{% include 'navbar.html' %}
+{% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
 <body>
-    {% include 'navbar.html' %}
     <header>
         <h2>Ekemai Digital Hub</h2>
     </header>
@@ -101,29 +118,29 @@
             <h2 >Digital Products</h2>
             <div class="product-grid">
                 <div class="product">
-                    <img src="https://5fb5295f-daf9-49fe-8ac3-4a82fcdae28e-00-1okinkky3hsxl.kirk.replit.dev/static/digproduct.jpg"
+                    <img src="../static/digproduct.jpg"
                         alt="AI Agents">
                     <h3>AI Agents</h3>
                     <p style="text-align: justify">An AI agent is a software entity that uses artificial intelligence to perform tasks autonomously. It can perceive its environment, process data, and make decisions to achieve specific goals, often learning and improving over time. AI agents are used in various applications, such as chatbots, virtual assistants, recommendation systems, robotics, and automated processes, enabling businesses and individuals to solve complex problems efficiently.</p>
-                    <a href="{{url_for('register')}}" class="btn btn-primary" type="button">Learn More</a>
+                    <a href="{{url_for('views.digitaltemp')}}" class="btn btn-primary" type="button">Learn More</a>
                 </div>
                 <div class="product">
-                    <img src="https://5fb5295f-daf9-49fe-8ac3-4a82fcdae28e-00-1okinkky3hsxl.kirk.replit.dev/static/mobile.jpg"
-                        alt="Mobile App">
+                    <img src="../static/mobile.jpg"
+                        alt="Mobile Apps">
                     <h3>Mobile App</h3>
                     <p style="text-align: justify">
                         An AI mobile app integrates artificial intelligence to provide personalized, intelligent, and automated features, such as recommendations, voice assistants, image recognition, or predictive analytics.
                     </p>
-                    <a href="{{url_for('register')}}" class="btn btn-primary" type="button">Learn More</a>
+                    <a href="{{url_for('auth.register')}}" class="btn btn-primary" type="button">Learn More</a>
                 </div>
                 <div class="product">
-                    <img src="https://5fb5295f-daf9-49fe-8ac3-4a82fcdae28e-00-1okinkky3hsxl.kirk.replit.dev/static/website.jpg"
+                    <img src="../static/website.jpg"
                         alt="Websites Templates">
                     <h3>Websites Templates</h3>
                     <p style="text-align: justify">
                         Website templates are pre-designed layouts and structures that simplify building websites. They include customizable elements like fonts, colors, and images, catering to various needs such as e-commerce, portfolios, or blogs. Templates help users create professional websites quickly without extensive coding knowledge.
                     </p>
-                    <a href="{{url_for('register')}}" class="btn btn-primary" type="button">Learn More</a>
+                    <a href="{{url_for('auth.register')}}" class="btn btn-primary" type="button">Learn More</a>
                 </div>
             </div>
         </section>
@@ -132,25 +149,25 @@
             <h2>Online Courses</h2>
             <div class="product-grid">
                 <div class="product">
-                    <img src="https://5fb5295f-daf9-49fe-8ac3-4a82fcdae28e-00-1okinkky3hsxl.kirk.replit.dev/static/matlab.jpg"
+                    <img src="../static/matlab.jpg"
                         alt="MATLAB/Simulink">
                     <h3>MATLAB/Simulink</h3>
                     <p style="text-align: justify">
                         MATLAB is a high-level programming language and environment for numerical computation, data analysis, and algorithm development. Simulink, an add-on to MATLAB, is a graphical tool for modeling, simulating, and analyzing dynamic systems. It supports block diagrams and integrates seamlessly with MATLAB, making it ideal for designing control systems, signal processing, and AI-driven simulations in engineering and scientific applications.
                     </p>
-                    <a href="{{url_for('register')}}" class="btn btn-primary" type="button">Learn More</a>
+                    <a href="{{url_for('auth.register')}}" class="btn btn-primary" type="button">Learn More</a>
                 </div>
                 <div class="product">
-                    <img src="https://5fb5295f-daf9-49fe-8ac3-4a82fcdae28e-00-1okinkky3hsxl.kirk.replit.dev/static/ai.jpg"
+                    <img src="../static/ai.jpg"
                         alt="AI">
                     <h3>AI</h3>
                     <p style="text-align: justify">
                         Artificial Intelligence (AI) is a field of computer science that focuses on creating machines that can think and learn like humans. It involves the development of algorithms and models that enable computers to perform tasks that typically require human intelligence, such as problem-solving, decision-making, and language understanding. AI technologies have the potential to revolutionize various industries, including healthcare, finance, transportation, and entertainment.
                     </p>
-                    <a href="{{url_for('register')}}" class="btn btn-primary" type="button">Learn More</a>
+                    <a href="{{url_for('auth.register')}}" class="btn btn-primary" type="button">Learn More</a>
                 </div>
                 <div class="product">
-                    <img src="https://5fb5295f-daf9-49fe-8ac3-4a82fcdae28e-00-1okinkky3hsxl.kirk.replit.dev/static/agentdev.jpg"
+                    <img src="../static/agentdev.jpg"
                         alt="AI Agents Development">
                     <h3>AI Agents Development</h3>
                     <p>
@@ -165,31 +182,31 @@
             <h2>Research</h2>
             <div class="product-grid">
                 <div class="product">
-                    <img src="https://5fb5295f-daf9-49fe-8ac3-4a82fcdae28e-00-1okinkky3hsxl.kirk.replit.dev/static/cadmodel.jpg"
+                    <img src="../static/cadmodel.jpg"
                         alt="CAD Models">
                     <h3>CAD Models</h3>
                     <p style="text-align: justify">
                         CAD models are 3D models that represent real-world objects and their relationships. They are used to design and simulate complex systems, such as buildings, vehicles, and industrial equipment. CAD models are often used in engineering, product design, and manufacturing to create accurate and realistic representations of products and systems.
                     </p>
-                    <a href="{{url_for('register')}}" class="btn btn-primary" type="button">Learn More</a>
+                    <a href="{{url_for('auth.register')}}" class="btn btn-primary" type="button">Learn More</a>
                 </div>
                 <div class="product">
-                    <img src="https://5fb5295f-daf9-49fe-8ac3-4a82fcdae28e-00-1okinkky3hsxl.kirk.replit.dev/static/simulink.jpeg"
+                    <img src="../static/simulink.jpeg"
                         alt="Simulink Models">
                     <h3>Simulink Models</h3>
                     <p style="text-align: justify">
                         Simulink is a software tool for modeling, simulating, and analyzing dynamic systems. It provides a graphical user interface (GUI) for creating and manipulating models, enabling users to design, simulate, and analyze complex systems. Simulink is commonly used in engineering, product design, and manufacturing to simulate and analyze complex systems.
                     </p>
-                    <a href="{{url_for('register')}}" class="btn btn-primary" type="button">Learn More</a>
+                    <a href="{{url_for('auth.register')}}" class="btn btn-primary" type="button">Learn More</a>
                 </div>
                 <div class="product">
-                    <img src="https://5fb5295f-daf9-49fe-8ac3-4a82fcdae28e-00-1okinkky3hsxl.kirk.replit.dev/static/mbdesign.png"
+                    <img src="../static/mbdesign.png"
                         alt="Model-Based Designs">
                     <h3>Model-Based Designs</h3>
                     <p style="text-align: justify">
                         Model-based design (MBD) is a methodology that uses models to guide the design process. MBD involves breaking down complex problems into smaller, more manageable parts, and then designing and testing each part independently. It helps to identify and address issues before they become a problem.
                     </p>
-                    <a href="{{url_for('register')}}" class="btn btn-primary" type="button">Learn More</a>
+                    <a href="{{url_for('auth.register')}}" class="btn btn-primary" type="button">Learn More</a>
                 </div>
             </div>
         </section>
@@ -198,5 +215,4 @@
          {% include 'footer.html' %}
     </footer> 
 </body>
-   
 </html>

@@ -1,27 +1,28 @@
-from flask import Flask, render_template
+import secrets
+
+from flask import Flask
+from flask_cors import CORS
+from gevent.pywsgi import WSGIServer
+
+from auth import auth
+from flask_session import Session
+from views import views
 
 app = Flask(__name__)
+app.secret_key = secrets.token_hex(16)
+app.config['SESSION_TYPE'] = 'memory'
 
-@app.route("/")
-def ekemai():
-    return render_template('home.html')
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
+
+app.register_blueprint(auth, url_prefix='/')
+app.register_blueprint(views, url_prefix='/')
 
 
-@app.route("/register")
-def register():
-    return render_template('register.html')
-
-@app.route("/about")
-def about():
-    return render_template('about.html')
-
-@app.route("/login")
-def login():
-    return render_template('login.html')
-
-@app.route("/pricing")
-def pricing():
-    return render_template('pricing.html')
+CORS(app)
 
 if __name__ == "__main__":
-  app.run(host='0.0.0.0', port=8080)
+    http_server = WSGIServer(('0.0.0.0', 5000), app)
+    http_server.spawn = 4
+    http_server.serve_forever()

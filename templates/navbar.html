@@ -1,24 +1,33 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm fixed-top"">
+<nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{url_for('ekemai')}}"><img src="../static/navlogi.png" height="40" width="40" alt=""></a>
+    <a class="navbar-brand" href="{{url_for('views.home')}}">
+      <img src="../static/navlogi.png" height="40" width="40" alt="">
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{url_for('about')}}">About</a>
+          <a class="nav-link active" aria-current="page" href="{{url_for('views.about')}}">About</a>
+        </li>
+        {% if not session.loggedin %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('auth.register')}}">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url_for('register')}}">Register</a>
+          <a class="nav-link" href="{{url_for('auth.login')}}">Login</a>
         </li>
+        {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{{url_for('login')}}">Login</a>
+          <a class="nav-link" href="{{url_for('auth.logout')}}">Sign Out</a>
         </li>
+        {% endif %}
         <li class="nav-item">
-          <a class="nav-link enabled" aria-disabled="false" href="{{url_for('pricing')}}">Pricing</a>
+          <a class="nav-link enabled" aria-disabled="false" href="{{url_for('views.pricing')}}">Pricing</a>
         </li>
       </ul>
+
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
